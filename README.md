@@ -1,5 +1,5 @@
 # Monografia
-    Trabajo final sobre los rasgos sociopaticos en los jovenes, teniendo en cuenta los traumas infantiles como detonantes de estos, como muestra de estudio los jovenes del colegio jerusalem.
+    Trabajo final sobre los rasgos sociopaticos en los jovenes, teniendo en cuenta los traumas infantiles como detonantes de estos, como muestra de estudio los jovenes del Colegio Jerusalem.
 # Sobre lo que tendrá la página y estructura=
     salud-mental-app/
             ├── index.html          <-- Página informativa (Inicio)
