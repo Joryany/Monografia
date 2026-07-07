@@ -92,6 +92,78 @@
             color: #334a66;
         }
 
+        .hero{
+            position: relative;
+            height: 260px;
+            border-radius: 25px;
+            overflow: hidden;
+            margin-top: 25px;
+            box-shadow: 0 18px 40px rgba(17,46,81,.18);
+        }   
+
+        .hero h1{
+            font-size: 2.3rem;
+            font-weight: 700;
+            color: #183453;
+            margin-bottom: 18px;
+            line-height: 1.15;
+        }
+
+        .hero h1{
+            font-size: clamp(2rem, 4vw, 2.8rem);
+        }
+
+        .hero img{
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero::before{
+
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(255,255,255,.55) 0%,
+                    rgba(255,255,255,.20) 50%,
+                    rgba(255,255,255,.55) 100%
+                );
+
+            backdrop-filter: blur(4px);
+        }
+
+        .hero-texto{
+            position: absolute;
+            inset: 0;
+            z-index: 2;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            text-align: center;
+
+            max-width: 700px;
+            margin: auto;
+
+            padding: 40px;
+        }
+        
+
+        .hero p{
+            max-width: 780px;
+            font-size: 1.15rem;
+            color: #183453;
+        }
+
         /* --- CONTENIDO PRINCIPAL --- */
         main {
             max-width: 1000px;
@@ -108,35 +180,35 @@
         }
 
         /* Sección de Tarjetas (Grid) */
-        h2#Tarjetas + article, 
-        h2#Tarjetas ~ article.Tarjeta {
-            display: inline-block;
-            width: 100%;
-        }
-        
-        @media (min-width: 768px) {
-            main {
-                display: flex;
-                flex-direction: column;
-            }
-            .grid-tarjetas {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                gap: 25px;
-                margin-bottom: 40px;
-            }
-        }
+    
+   .grid-tarjetas{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
+        gap:25px;
+        margin:35px 0;
+     }
+
 
         /* --- DISEÑO DE TARJETAS --- */
-        .Tarjeta {
-            background-color: var(--blanco);
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 4px 15px var(--sombra);
-            border-top: 5px solid var(--azul-claro);
-            transition: transform 0.2s ease;
-            margin-bottom: 20px;
+        .Tarjeta{
+            background: var(--blanco);
+            border-radius:16px;
+            padding:28px;
+            box-shadow:0 8px 25px rgba(17,46,81,.10);
+            border-top:5px solid var(--azul-claro);
+
+            transition:.30s;
+
+            display:flex;
+            flex-direction:column;
+
+    
         }
+
+        .Tarjeta p{
+             flex:1;
+        }
+        
 
         .Tarjeta:hover {
             transform: translateY(-5px);
@@ -180,30 +252,81 @@
             background-color: #c0392b;
         }
 
+        .botones{
+            display:flex;
+            gap:10px;
+            margin-top:auto;
+            flex-wrap:wrap;
+        }
+         
+        .Tarjeta p{
+            margin-bottom:auto;
+        }
+
         /* --- SECCIÓN DE INFORMACIÓN --- */
-        h2#Información ~ article {
-            background-color: var(--blanco);
-            border-radius: 12px;
-            padding: 30px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 15px var(--sombra);
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            border-left: 5px solid var(--verde-agua);
+       h2#Información ~ article{
+
+            background:white;
+
+            border-radius:18px;
+
+            padding:35px;
+
+            margin-bottom:35px;
+
+            border-left:6px solid var(--verde-agua);
+
+            box-shadow:0 12px 35px rgba(17,46,81,.10);
+
+            transition:.35s;
+        }
+        
+        h2#Información ~ article:hover{
+
+            transform:translateY(-6px);
+
+            box-shadow:0 20px 40px rgba(17,46,81,.16);
+
         }
 
         h2#Información ~ article img {
-            border-radius: 8px;
-            margin: 15px 0;
-            background-color: var(--fondo-suave);
-            padding: 10px;
+
+            width:170px;
+
+            padding:18px;
+
+            background:white;
+
+            border-radius:18px;
+
+            border:1px solid rgba(17,46,81,.08);
+
+            box-shadow:
+            0 10px 25px rgba(17,46,81,.12);
+
+            margin:20px auto;
+
+            display:block;
+
+            transition:.35s;
+        }
+
+        h2#Información article:hover img{
+
+            transform:scale(1.05);
+
+            box-shadow:
+            0 18px 35px rgba(17,46,81,.18);
+
         }
 
         h2#Información ~ article h4 {
             color: var(--azul-claro);
             margin-top: 20px;
         }
+
+       
+            
 
         /* --- PIE DE PÁGINA --- */
         footer {
@@ -241,9 +364,22 @@
             </nav>
         </div>
         
-        <h1> ¿Necesitas ayuda?</h1>
-        <p><strong>No estás solo.</strong> Si estás pasando por una situación difícil o sientes que puedes hacerte daño o dañar a alguien, busca ayuda de inmediato. <strong>Los siguientes servicios son gratuitos y cuentan con profesionales capacitados para brindarte orientación.</strong></p>
+        <div class="hero">
 
+            <img src="Assest/Fondo2.png" alt="Fondo">
+
+            <div class="hero-texto">
+
+                <h1>¿Necesitas ayuda?</h1>
+
+                <p>
+                    <strong>No estás solo.</strong>
+                    Si estás pasando por una situación difícil...
+                </p>
+
+            </div>
+
+        </div>
         <!-- Navegación secundaria (enlaces ancla) se queda centrada abajo del texto -->
         <nav>
             <a href="#Tarjetas">Tarjeta de Contacto</a>
@@ -267,8 +403,11 @@
                 ☎️ 106 - 300 754 8933 <br>
                </p> 
 
-               <a href="tel:106">Llamar</a> 
+               <div class="botones">
+                <a href="tel:106">Llamar</a> 
                 <a href="https://wa.me/573007548933">Chatear</a>
+                </div>
+               
             </article>
 
              <article class="Tarjeta">
@@ -280,8 +419,10 @@
                 👨‍⚕️ Psicólogos profesionales. <br>
                 🆓 Gratuito. <br>
                </p> 
-
-               <a href="https://wa.me/573188044000">Chatear</a>
+               <div class="botones">
+                    <a href="https://wa.me/573188044000">Chatear</a>
+                </div>
+               
             </article>
 
              <article class="Tarjeta" id="Emergencia">
@@ -296,8 +437,10 @@
                 Llama inmediatamente al 123 o acude al servicio de urgencias más cercano.<br>
                 ☎️ 123 <br>
                </p> 
-
-               <a href="tel:123">Llamar</a>
+               <div class="botones">
+                    <a href="tel:123">Llamar</a>
+                 </div>
+               
             </article>
         </div>
                 
